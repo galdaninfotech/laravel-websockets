@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('numbers', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('number')->unique()->unsigned();
             $table->text('tag_line')->nullable();
+
             $table->timestamps();
         });
     }

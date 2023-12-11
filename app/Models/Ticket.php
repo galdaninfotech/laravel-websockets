@@ -13,13 +13,14 @@ class Ticket extends Model
 
     protected $guarded = [];
 
-    public function games(): HasMany
-    {
-        return $this->hasMany(Game::class);
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
+    public function claims(): HasMany
+    {
+        return $this->hasMany(Claim::class);
+    }
+
 }

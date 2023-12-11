@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Game;
+use App\Models\Number;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,10 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prizes', function (Blueprint $table) {
+        Schema::create('game_number', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->text('description')->nullable();
+            $table->foreignIdFor(Game::class);
+            $table->foreignIdFor(Number::class);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prizes');
+        Schema::dropIfExists('game_number');
     }
 };

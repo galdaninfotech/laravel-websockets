@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('claims', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Prize::class);
             $table->foreignIdFor(Ticket::class);
+            $table->foreignIdFor(Prize::class);
             $table->string('status')->default('active');
             $table->text('comment')->nullable();
             $table->timestamps();
@@ -77,6 +77,17 @@ return new class extends Migration
             SQLite disables foreign key constraints by default. When using SQLite, make sure to enable foreign key support in your database configuration before attempting to create them in your migrations. In addition, SQLite only supports foreign keys upon creation of the table and not when tables are altered.
             
 
+            Tambola Rules
+            Few constraints for the numbers on the ticket are listed below:
+                Each ticket has 15 distinct and random number generated between 1–90
+                All 90 numbers are distributed in a set of 6 tickets
+                There are 3 rows and 9 columns in a ticket
+                Each column must have at least 1 number
+                Each row can have almost 5 numbers
+                Column 1 has values between 0–9 (9 possible numbers)
+                Column 2 has values from 10–19 (10 possible numbers)
+                Column 3 has values from 20–29 and so on till column 8 with values from 70–79 (10 possible numbers)
+                Column 9 has values from 80–90 (11 possible numbers)
 
             
             */

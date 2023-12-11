@@ -11,8 +11,13 @@ class Claim extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function tickets(): BelongsTo
+    public function prize(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Prize::class);
+    }
+
+    public function ticket(): BelongsTo
+    {
+        return $this->belongsTo(Ticket::class);
     }
 }

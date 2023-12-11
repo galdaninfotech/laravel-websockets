@@ -17,9 +17,9 @@ class NumberFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'number' => rand(1,99),
+            // 'number' => rand(1,90),
             // 'number' => $this->faker->numberBetween(0, 100),
-            'number' => $this->faker->unique()->randomDigit,
+            // 'number' => $this->faker->unique()->randomDigit,
 
             'tag_line' => $this->faker->title(),
         ];
